@@ -1,24 +1,5 @@
-# README
+# Registro de coches afectados por la dana
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Publicado en la URL:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[https://p3000-z4045f074-z1d8d64f0-gtw.zd0a93e31.prm.sh/](https://p3000-z4045f074-z1d8d64f0-gtw.zd0a93e31.prm.sh/)
