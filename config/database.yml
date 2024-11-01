@@ -29,4 +29,7 @@ test:
 # ensure the database is located in a persisted volume.
 production:
   <<: *default
-  database: storage/production.sqlite3
+  adapter: postgresql
+  advisory_locks: false
+  timeout: 5000
+  url: <%= ENV['DATABASE_URL'] %>

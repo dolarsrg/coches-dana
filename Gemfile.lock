@@ -102,7 +102,16 @@ GEM
       reline (>= 0.3.8)
     drb (2.2.1)
     erubi (1.13.0)
-    ffi (1.17.0)
+    ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-aarch64-linux-musl)
+    ffi (1.17.0-arm-linux-gnu)
+    ffi (1.17.0-arm-linux-musl)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86-linux-gnu)
+    ffi (1.17.0-x86-linux-musl)
+    ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
+    ffi (1.17.0-x86_64-linux-musl)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)
@@ -164,6 +173,7 @@ GEM
     parser (3.3.5.1)
       ast (~> 2.4.1)
       racc
+    pg (1.5.9)
     psych (5.1.2)
       stringio
     public_suffix (6.0.1)
@@ -322,6 +332,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  pg (>= 1.1, < 2.0)
   puma (>= 5.0)
   rails (~> 7.2.1, >= 7.2.1.2)
   rubocop-rails-omakase
