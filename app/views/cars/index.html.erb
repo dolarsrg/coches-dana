@@ -1,0 +1,33 @@
+<h1>Registro de coches afectados por la dana</h1>
+
+<%= link_to 'Registrar nuevo coche', new_car_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Matricula</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Color</th>
+      <th>Municipio</th>
+      <th>Dirección</th>
+      <th>Fecha de registro</th>
+      <th>Municipio</th>
+      <th>Dirección</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= link_to car.plate, car %></td>
+        <td><%= car.brand %></td>
+        <td><%= car.model %></td>
+        <td><%= car.color %></td>
+        <td><%= car.city %></td>
+        <td><%= car.address %></td>
+        <td><%= l car.created_at, format: :long %></td>
+        <td><%= car.city %></td>
+        <td><%= car.address %></td>
+      </tr>
+    <% end %>
+  </tbody>

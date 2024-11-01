@@ -1,0 +1,7 @@
+<%= link_to "Volver", cars_path %>
+<h1>
+  <%= @car.plate %>
+</h1>
+<% if @car.photo.attached? %>
+  <%= image_tag @car.photo %>
+<% end %>
