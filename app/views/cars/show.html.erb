@@ -1,12 +1,37 @@
 <%= link_to "Volver", cars_path %>
-<h1>
-  <%= @car.plate %>
-</h1>
+
+<h1 class="h2"><%= @car.plate %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Matrícula</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Color</th>
+      <th>Municipio</th>
+      <th>Dirección</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @car.plate %></td>
+      <td><%= @car.brand %></td>
+      <td><%= @car.model %></td>
+      <td><%= @car.color %></td>
+      <td><%= @car.city %></td>
+      <td><%= @car.address %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h6>Foto</h6>
 <% if @car.photo.attached? %>
   <%= link_to @car.photo, target: "_blank" do %>
     <%= image_tag @car.photo.variant(resize_to_limit: [500, 500]) %>
   <% end %>
 
+  <h6>Ubicación</h6>
   <% if @latitude && @longitude %>
     <p>Coordenadas: <%= @latitude_dms %>, <%= @longitude_dms %> (<%= @latitude %>,<%= @longitude %>)</p>
     <div id="map" style="height: 500px;"></div>
@@ -21,5 +46,9 @@
           .openPopup();
       });
     </script>
+  <% else %>
+    <p>No hay ubicación</p>
   <% end %>
+<% else %>
+  <p>No hay foto</p>
 <% end %>
