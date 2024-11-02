@@ -1,14 +1,14 @@
 <%= form_with model: @car do |f| %>
   <div class="field">
-    <%= f.label :plate %>
+    <%= f.label :plate, "Matrícula" %>
     <%= f.text_field :plate %>
   </div>
   <div class="field">
-    <%= f.label :brand %>
+    <%= f.label :brand, "Marca" %>
     <%= f.text_field :brand %>
   </div>
   <div class="field">
-    <%= f.label :model %>
+    <%= f.label :model, "Modelo" %>
     <%= f.text_field :model %>
   </div>
   <div class="field">
@@ -16,18 +16,18 @@
     <%= f.text_field :color %>
   </div>
   <div class="field">
-    <%= f.label :city %>
+    <%= f.label :city, "Municipio" %>
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :address %>
+    <%= f.label :address, "Dirección" %>
     <%= f.text_field :address %>
   </div>
   <div class="field">
-    <%= f.label :photo %>
+    <%= f.label :photo, "Fotografía" %>
     <%= f.file_field :photo %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Registrar vehículo" %>
   </div>
 <% end %>
