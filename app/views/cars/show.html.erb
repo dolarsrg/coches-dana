@@ -8,7 +8,7 @@
   <% end %>
 
   <% if @latitude && @longitude %>
-    <p>Coordenadas: <%= @latitude %>,<%= @longitude %></p>
+    <p>Coordenadas: <%= @latitude_dms %>, <%= @longitude_dms %> (<%= @latitude %>,<%= @longitude %>)</p>
     <div id="map" style="height: 500px;"></div>
     <script>
       document.addEventListener("DOMContentLoaded", function() {

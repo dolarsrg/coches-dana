@@ -24,13 +24,13 @@ class CarsController < ApplicationController
         file.write(@car.photo.download)
         file.rewind
         exif = MiniExiftool.new(file.path)
-        latitude_dms = exif.GPSLatitude
+        @latitude_dms = exif.GPSLatitude
         latitude_ref = exif.GPSLatitudeRef
-        longitude_dms = exif.GPSLongitude
+        @longitude_dms = exif.GPSLongitude
         longitude_ref = exif.GPSLongitudeRef
 
-        @latitude = dms_to_decimal(latitude_dms, latitude_ref)
-        @longitude = dms_to_decimal(longitude_dms, longitude_ref)  
+        @latitude = dms_to_decimal(@latitude_dms, latitude_ref)
+        @longitude = dms_to_decimal(@longitude_dms, longitude_ref)  
       end
     end
   end
@@ -38,13 +38,13 @@ class CarsController < ApplicationController
   private
 
   def dms_to_decimal(dms, direction)
-    parts = dms.split(/[^\d\w\.]+/)
+    parts = dms.scan(/(\d+)\D+(\d+)\D+([\d.]+)/).flatten
     degrees = parts[0].to_f
     minutes = parts[1].to_f
     seconds = parts[2].to_f
   
     decimal = degrees + (minutes / 60) + (seconds / 3600)
-    decimal *= -1 if direction == 'S' || direction == 'W'
+    decimal *= -1 if %w[S W South West].include?(direction)
     decimal
   end
 end
