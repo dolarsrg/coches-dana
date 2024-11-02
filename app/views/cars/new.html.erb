@@ -1,33 +1,34 @@
-<%= form_with model: @car do |f| %>
-  <div class="field">
-    <%= f.label :plate, "Matrícula" %>
-    <%= f.text_field :plate %>
-  </div>
-  <div class="field">
-    <%= f.label :brand, "Marca" %>
-    <%= f.text_field :brand %>
-  </div>
-  <div class="field">
-    <%= f.label :model, "Modelo" %>
-    <%= f.text_field :model %>
-  </div>
-  <div class="field">
-    <%= f.label :color %>
-    <%= f.text_field :color %>
-  </div>
-  <div class="field">
-    <%= f.label :city, "Municipio" %>
-    <%= f.select :city, ["Chiva", "Cheste", "Aldaya", "Alacuas", "Torrent", "Picanya", "Paiporta", "Alfafar", "Massanasa", "Catarroja", "La albufera"].sort %>
-  </div>
-  <div class="field">
-    <%= f.label :address, "Dirección" %>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :photo, "Fotografía" %>
-    <%= f.file_field :photo %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Registrar vehículo" %>
-  </div>
-<% end %>
+<div class="container">
+  <h1 class="h2">Nuevo vehículo</h1>
+  <%= form_with model: @car do |f| %>
+    <div class="mb-3">
+      <%= f.label :plate, "Matrícula", class: "form-label" %>
+      <%= f.text_field :plate, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :brand, "Marca", class: "form-label" %>
+      <%= f.text_field :brand, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :model, "Modelo", class: "form-label" %>
+      <%= f.text_field :model, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :color, "Color", class: "form-label" %>
+      <%= f.text_field :color, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :city, "Municipio", class: "form-label"%>
+      <%= f.select :city, ["Chiva", "Cheste", "Aldaya", "Alacuas", "Torrent", "Picanya", "Paiporta", "Alfafar", "Massanasa", "Catarroja", "La albufera"].sort, {}, class: "form-select" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :address, "Dirección", class: "form-label" %>
+      <%= f.text_field :address, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :photo, "Fotografía", class: "form-label" %>
+      <%= f.file_field :photo, class: "form-control" %>
+    </div>
+    <%= f.submit "Registrar vehículo", class: "btn btn-success" %>
+  <% end %>
+</div>

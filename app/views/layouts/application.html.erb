@@ -20,6 +20,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar bg-body-secondary border-bottom">
+      <div class="container-fluid">
+        <%= link_to "Coches DANA", root_path, class: "fw-bold navbar-brand" %>
+        <%= link_to "Registrar nuevo vehículo", new_car_path, class: "btn btn-primary" %>
+      </div>
+    </nav>
+    <div class="container-fluid my-3">
+      <%= yield %>
+    </div>
   </body>
 </html>
