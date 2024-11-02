@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   def index
-    @cars = Car.all
+    @cars = Car.order(:plate).all
   end
 
   def new
