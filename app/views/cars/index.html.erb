@@ -1,33 +1,30 @@
-<h1>Registro de vehículos afectados por la dana</h1>
+<h1 class="h2 mb-3">Registro de vehículos afectados por la dana</h1>
 
-<%= link_to 'Registrar nuevo vehículo', new_car_path %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Matricula</th>
-      <th>Marca</th>
-      <th>Modelo</th>
-      <th>Color</th>
-      <th>Municipio</th>
-      <th>Dirección</th>
-      <th>Fecha de registro</th>
-      <th>Municipio</th>
-      <th>Dirección</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @cars.each do |car| %>
+<div class="table-responsive">
+  <table class="table">
+    <thead class="table-light">
       <tr>
-        <td><%= link_to car.plate, car %></td>
-        <td><%= car.brand %></td>
-        <td><%= car.model %></td>
-        <td><%= car.color %></td>
-        <td><%= car.city %></td>
-        <td><%= car.address %></td>
-        <td><%= l car.created_at, format: :long %></td>
-        <td><%= car.city %></td>
-        <td><%= car.address %></td>
+        <th>Matrícula</th>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Color</th>
+        <th>Municipio</th>
+        <th>Dirección</th>
+        <th>Fecha de registro</th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
+    <tbody>
+      <% @cars.each do |car| %>
+        <tr>
+          <td><%= link_to car.plate, car %></td>
+          <td><%= car.brand %></td>
+          <td><%= car.model %></td>
+          <td><%= car.color %></td>
+          <td><%= car.city %></td>
+          <td><%= car.address %></td>
+          <td><%= l car.created_at, format: :long %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
