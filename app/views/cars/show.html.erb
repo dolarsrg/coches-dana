@@ -50,5 +50,12 @@
     <p>No hay ubicación</p>
   <% end %>
 <% else %>
-  <p>No hay foto</p>
+  <p>Añade una foto con metadatos de geolocalización para ayudar a localizar el vehículo</p>
+  <%= form_with model: @car do |f| %>
+    <div class="mb-3">
+      <%= f.label :photo, "Fotografía", class: "form-label" %>
+      <%= f.file_field :photo, class: "form-control" %>
+    </div>
+    <%= f.submit "Añadir fotografía", class: "btn btn-success" %>
+  <% end %>
 <% end %>

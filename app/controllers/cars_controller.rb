@@ -35,6 +35,15 @@ class CarsController < ApplicationController
     end
   end
 
+  def udpate
+    @car = Car.find(params[:id])
+    if @car.update(params.require(:car).permit(:photo))
+      redirect_to @car
+    else
+      render :show
+    end
+  end
+
   private
 
   def dms_to_decimal(dms, direction)
