@@ -13,7 +13,7 @@ WORKDIR /rails
 
 # Install base packages
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 libvips libpq-dev exiftool && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 libvips libheif-dev libpq-dev exiftool && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Set production environment

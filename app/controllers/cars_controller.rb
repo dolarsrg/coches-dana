@@ -37,7 +37,7 @@ class CarsController < ApplicationController
     end
   end
 
-  def udpate
+  def update
     @car = Car.find(params[:id])
     if @car.update(params.require(:car).permit(:photo))
       redirect_to @car
