@@ -11,6 +11,8 @@ class CarsController < ApplicationController
     @car = Car.new(params.require(:car).permit(:plate, :brand, :model, :color, :city, :address, :photo))
     if @car.save
       redirect_to @car
+    elsif colision = Car.find_by(plate: @car.plate)
+      redirect_to colision
     else
       render :new
     end
