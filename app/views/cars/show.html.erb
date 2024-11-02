@@ -3,5 +3,23 @@
   <%= @car.plate %>
 </h1>
 <% if @car.photo.attached? %>
-  <%= image_tag @car.photo %>
+  <%= link_to @car.photo, target: "_blank" do %>
+    <%= image_tag @car.photo.variant(resize_to_limit: [500, 500]) %>
+  <% end %>
+
+  <% if @latitude && @longitude %>
+    <p>Coordenadas: <%= @latitude %>,<%= @longitude %></p>
+    <div id="map" style="height: 500px;"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var map = L.map('map').setView([<%= @latitude %>, <%= @longitude %>], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        L.marker([<%= @latitude %>, <%= @longitude %>]).addTo(map)
+          .bindPopup('Location of the photo')
+          .openPopup();
+      });
+    </script>
+  <% end %>
 <% end %>
