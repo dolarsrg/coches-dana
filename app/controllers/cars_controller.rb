@@ -1,7 +1,7 @@
 class CarsController < ApplicationController
   def index
     if params[:search].present?
-      @cars = Car.where("plate LIKE ?", "%#{params[:search]}%").order(:plate)
+      @cars = Car.where("plate LIKE ?", "%#{params[:search].upcase}%").order(:plate)
     else
       @cars = Car.order(:plate).all
     end
