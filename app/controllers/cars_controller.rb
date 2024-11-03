@@ -1,6 +1,10 @@
 class CarsController < ApplicationController
   def index
-    @cars = Car.order(:plate).all
+    if params[:search].present?
+      @cars = Car.where("plate LIKE ?", "%#{params[:search]}%").order(:plate)
+    else
+      @cars = Car.order(:plate).all
+    end
   end
 
   def new
