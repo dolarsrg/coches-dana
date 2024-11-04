@@ -25,18 +25,24 @@ class CarsController < ApplicationController
   def show
     @car = Car.find(params[:id])
     if @car.photo.attached?
-      Tempfile.open(['photo', '.jpg']) do |file|
-        file.binmode
-        file.write(@car.photo.download)
-        file.rewind
-        exif = MiniExiftool.new(file.path)
-        @latitude_dms = exif.GPSLatitude
-        latitude_ref = exif.GPSLatitudeRef
-        @longitude_dms = exif.GPSLongitude
-        longitude_ref = exif.GPSLongitudeRef
+      begin
+        Tempfile.open(['photo', '.jpg']) do |file|
+          file.binmode
+          file.write(@car.photo.download)
+          file.rewind
+          exif = MiniExiftool.new(file.path)
+          @latitude_dms = exif.GPSLatitude
+          latitude_ref = exif.GPSLatitudeRef
+          @longitude_dms = exif.GPSLongitude
+          longitude_ref = exif.GPSLongitudeRef
 
-        @latitude = dms_to_decimal(@latitude_dms, latitude_ref)
-        @longitude = dms_to_decimal(@longitude_dms, longitude_ref)  
+          @latitude = dms_to_decimal(@latitude_dms, latitude_ref)
+          @longitude = dms_to_decimal(@longitude_dms, longitude_ref)  
+        end
+      rescue => e
+        @latitude = nil
+        @longitude = nil
+        Rails.logger.error(e)
       end
     end
   end
